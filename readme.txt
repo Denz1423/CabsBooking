@@ -1,15 +1,3 @@
-//List of all files
-booking.html
-booking.php
-booking.js
-booking.css
-admin.html
-admin.js
-admin.php
-admin.css
-assign.php
-xhr.js
-
 //Brief instructions to run the system
 
 //Making a booking
