@@ -1,0 +1,71 @@
+<!-- Davis Djaja, 17981197 -->
+<!-- This file consist of the form that users input in-order to make a cab booking -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking</title>
+    <script type="text/javascript" src="xhr.js"></script>
+    <link rel="stylesheet" href="/assign2/booking.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a name="top"></a>
+    <h1>Cabs Online Booking</h1>
+
+    <div id="confirmation" name="reference"></div>
+
+    <form id="bookingform">
+      <label>Customer Name: <input type="text" name="cname" required /></label>
+      <br />
+      <label
+        >Phone Number:
+        <input
+          type="text"
+          name="phone"
+          pattern="[0-9]{10,12}"
+          title="Please enter numbers only(10-12 numbers)"
+          required
+      /></label>
+      <br />
+      <label
+        >Unit Number: <input type="text" name="unumber" pattern="[0-9]+"
+      /></label>
+      <br />
+      <label
+        >Street Number:
+        <input type="text" name="snumber" pattern="[0-9]+" required
+      /></label>
+      <br />
+      <label>Street Name: <input type="text" name="stname" required /></label>
+      <br />
+      <label>Suburb: <input type="text" name="sbname" /></label>
+      <br />
+      <label>Destination Suburb: <input type="text" name="dsbname" /></label>
+      <br />
+      <label
+        >Pick-Up Date:
+        <input type="date" name="date" id="date" min="" required /></label
+      ><br />
+      <label
+        >Pick-Up Time: <input type="time" name="time" id="time" min="" required
+      /></label>
+      <br />
+      <input
+        type="submit"
+        value="Submit"
+        name="submit"
+        onclick="submitData('booking.php', 'confirmation', cname.value , phone.value , unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, date.value, time.value)"
+      />
+    </form>
+    <script type="text/javascript" src="booking.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+CREATE TABLE bookings (
+bookingNum VARCHAR(8) NOT NULL UNIQUE,
+name VARCHAR(50),
+phone VARCHAR(12),
+unitnumber VARCHAR(5),
+streetnumber VARCHAR(5),
+streetname VARCHAR(50),
+suburb VARCHAR(50),
+dsbname VARCHAR(50),
+datetime VARCHAR(50),
+status VARCHAR(50),
+bookingdate VARCHAR(50)
+);

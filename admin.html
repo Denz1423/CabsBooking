@@ -1,0 +1,68 @@
+<!-- Davis Djaja, 17981197 -->
+<!-- This file contains the search form for admins to search for a booking and allows admin to assign a booking -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="/assign2/admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="xhr.js"></script>
+    <script type="text/javascript" src="admin.js"></script>
+    <script type="text/javascript">
+      function assign(ref) {
+        var xhr = createRequest();
+        document.getElementById(ref).innerHTML = "Assigned";
+
+        if (xhr) {
+          var obj = document.getElementById("assignResult"); //Target div
+          var requestbody = "assignbutton=" + encodeURIComponent(ref);
+
+          xhr.open("POST", "assign.php", true);
+          xhr.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+          );
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              obj.innerHTML = xhr.responseText;
+            }
+          };
+          xhr.send(requestbody);
+        }
+      }
+
+      function clearcontent() {
+        document.getElementById("assignResult").innerHTML = "";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Booking Search</h1>
+
+    <form id="searchform">
+      <label>Booking Reference: <input type="text" name="bsearch" /></label>
+      <br />
+      <br />
+      <input
+        type="button"
+        name="sbutton"
+        value="Submit"
+        pattern="BRN#####"
+        onclick="getData('admin.php', 'searchResult', bsearch.value); clearcontent();"
+      />
+    </form>
+    <br />
+
+    <div id="assignResult" name="assign"></div>
+    <div class="content" id="searchResult" name="result"></div>
+  </body>
+</html>
